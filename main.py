@@ -61,15 +61,17 @@ def game(word):
             print_dictionary(global_dictionary, global_positions, word)
             if check_win(global_positions, word):
                 print("\nCongrats you guessed the word!")
-                break
+
         elif check_win(global_positions, word):
             print("\nCongrats you guessed the word!")
-            break
 
         else:
             print_dictionary(global_dictionary, global_positions, word)
             try_counter += 1
             print('\nIncorrect!' + str(try_counter))
+
+    if try_counter == 7:
+        print("The correct word is " + word)
 
 
 def print_dictionary(gd, pos, word):
@@ -82,7 +84,7 @@ def print_dictionary(gd, pos, word):
 
 
 def check_win(pos, word):
-    if len(pos) == len(word)-1:
+    if len(pos) == len(word) - 1:
         return True
     else:
         return False
